@@ -1,94 +1,97 @@
-# Flexbox trong react native 
+# Flexbox trong react native
 
 - Giúp xây dựng bố cục, thu nhỏ tự động dựa vào kích thước của màn hình thiết bị.
 <details>
     <summary><b>DEMO</b></summary>
 
 ```js
-import React from 'react';
+import React from "react";
 
-import {Text, View, StyleSheet, Dimensions} from 'react-native';
+import { Text, View, StyleSheet, Dimensions } from "react-native";
 
-const {height, width} = Dimensions.get('window');
+const { height, width } = Dimensions.get("window");
 
 function App() {
-return (
+  return (
     <View style={styles.container}>
-    <View style={styles.top}>
+      <View style={styles.top}>
         <View style={styles.topLeft}>
-        <View style={styles.topLeftTop}></View>
+          <View style={styles.topLeftTop}></View>
 
-        <View style={styles.topLeftBottom}></View>
+          <View style={styles.topLeftBottom}></View>
         </View>
 
         <View style={styles.topRight}>
-        <Text
-            style={[styles.textTopRight, {fontWeight: 'bold', color: 'white'}]}>
+          <Text
+            style={[
+              styles.textTopRight,
+              { fontWeight: "bold", color: "white" },
+            ]}
+          >
             HELLO
-        </Text>
+          </Text>
         </View>
-    </View>
+      </View>
 
-    <View style={styles.bottom}>
+      <View style={styles.bottom}>
         <View style={styles.bottomLeft}></View>
 
         <View style={styles.bottomCenter}></View>
         <View style={styles.bottomRight}></View>
+      </View>
     </View>
-    </View>
-);
+  );
 }
 
 export default App;
 
 const styles = StyleSheet.create({
-container: {
+  container: {
     flex: 1,
-},
-top: {
-    backgroundColor: 'red',
+  },
+  top: {
+    backgroundColor: "red",
     flex: 6,
-    flexDirection: 'row',
-},
-bottom: {
-    backgroundColor: 'white',
+    flexDirection: "row",
+  },
+  bottom: {
+    backgroundColor: "white",
     flex: 3,
-    flexDirection: 'row',
-},
-topLeft: {
-    backgroundColor: 'white',
+    flexDirection: "row",
+  },
+  topLeft: {
+    backgroundColor: "white",
     flex: 2,
-},
-topRight: {
+  },
+  topRight: {
     flex: 6,
-    alignItems: 'center',
-    justifyContent: 'center',
-},
-textTopRight: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textTopRight: {
     fontSize: 30,
-},
-topLeftTop: {
+  },
+  topLeftTop: {
     borderWidth: 3,
     flex: 2,
-},
-topLeftBottom: {
+  },
+  topLeftBottom: {
     borderWidth: 3,
     flex: 8,
-},
+  },
 
-bottomLeft: {
+  bottomLeft: {
     flex: 2,
-    backgroundColor: 'blue',
-},
-bottomCenter: {
+    backgroundColor: "blue",
+  },
+  bottomCenter: {
     flex: 4,
-},
-bottomRight: {
+  },
+  bottomRight: {
     flex: 2,
     borderWidth: 3,
-},
+  },
 });
 ```
-</details>
 
-ffff
+</details>
