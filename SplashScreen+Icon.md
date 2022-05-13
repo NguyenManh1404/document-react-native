@@ -98,7 +98,8 @@ Doc: https://blog.logrocket.com/building-a-splash-screen-in-react-native/
 1. Chọn ảnh làm logo
 2. Truy cập https://appicon.co/ để xuất ra nhưng file với kích cỡ khác nhau.
 3. Lấy ra nhũng file cần thiết cho app, vào thêm ảnh có hình tròn vào với tên là **ic_launcher_round**
-   ![forEachResult](./image/iconChange.png)
+
+![forEachResult](./image/iconChange.png)
 
 4. Vào **android\app\src\main\res** xóa những thư mục mặc định và thay vào đó là thư mục vừa tạo
 

@@ -1,3 +1,10 @@
+# Cài đặt:
+
+Link: https://reactnavigation.org/docs/getting-started
+
+1. **npm install @react-navigation/native**: Thư viện của hắn
+2. **npm install react-native-screens react-native-safe-area-context**: Cứ cài cái này để đảm bảo không lỗi
+
 # Navigation Top Bar
 
 1. Đảm bảo đã Cài đặt: **npm i @react-navigation/native**
@@ -7,7 +14,7 @@
 
 4. Kiểm tra giống như này chưa ở **package.json**
 
-```
+```js
 "dependencies": {
     "@react-navigation/material-top-tabs": "^6.2.1",
     "@react-navigation/native": "^6.0.10",
@@ -109,3 +116,82 @@ export default App;
    ```
 
    <details>
+
+## Navigation Bottom Bar
+
+1. Cài những dependencies sau:
+
+```js
+"dependencies": {
+    "@react-navigation/bottom-tabs": "^6.3.1",
+    "@react-navigation/native": "^6.0.10",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-pager-view": "^5.4.15",
+    "react-native-safe-area-context": "^4.2.5",
+    "react-native-screens": "^3.13.1",
+  },
+```
+
+2. Import và sử dụng như này:
+
+<details>
+
+```js
+import * as React from "react";
+import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+    </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}
+```
+
+</details>
+
+## LỖI: Invariant Violation: requireNativeComponent: "RNSScreen" was not found in the UIManager.
+
+### Sửa:
+
+1. **npm install react-native-screens react-native-safe-area-context**: Thiếu cái này
+
+2. Buil lại app;
+
+# Navigation Topbar hoặc Bottombar kết hợp với Stack
+
+Dùng trong trường hợp muốn chuyển từ Screen Topbar/Bottombar sang một screen bất kỳ.
+
+1. Cài đặt **npm install @react-navigation/stack**
+2.
