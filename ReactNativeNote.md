@@ -182,7 +182,7 @@ export default App;
   - b3: Render UI
   - b4: Gọi cleanup nếu des thay đổi
   - b5: Gọi useEffect()
-
+- Nó giúp cho re-render UI ra trước, còn các logic tốn nhiều thời gian sẽ chạy ra đằng sau, giúp cho UI app ko bị đứng khi xử lý logic
 <details>
     <summary><b>DEMO</b></summary>
 

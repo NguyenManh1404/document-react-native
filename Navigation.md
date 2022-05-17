@@ -12,7 +12,7 @@ Link: https://reactnavigation.org/docs/getting-started
 
 3. Cài: **npm i react-native-pager-view**
 
-4. Kiểm tra giống như này chưa ở **package.json**
+4. Kiểm tra đầy đủ giống như này chưa ở **package.json**
 
 ```js
 "dependencies": {
@@ -107,7 +107,7 @@ export default App;
            component={HomeScreen}
            options={{
                tabBarShowLabel: false, //ẩn tên của tab
-               tabBarLabel: 'Home',
+               tabBarLabel: 'Home', // tên của tab hiển thị lên ui
                tabBarIcon: ({}) => (
                <MaterialCommunityIcons name="home" color={'blue'} size={25} />
                ),//thêm icon

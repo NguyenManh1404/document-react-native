@@ -9,9 +9,9 @@ link: https://react-native-camera.github.io/react-native-camera/docs/installatio
 ```js
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Camera -->
+     //<!-- Camera -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <!-- Camera -->
+     //<!-- Camera -->
 ```
 
 4.  Vào **android/app/build.gradle** dán code này vào
@@ -21,7 +21,9 @@ link: https://react-native-camera.github.io/react-native-camera/docs/installatio
     ...
         defaultConfig {
             ...
+             //<!-- Camera -->
             missingDimensionStrategy 'react-native-camera', 'general' // <--- insert this line
+             //<!-- Camera -->
         }
     }
 ```
