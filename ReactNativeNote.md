@@ -44,6 +44,12 @@ module.exports = {
 8. Đổi **App.js => App.tsx** Tất cả các file nào mà thêm vào sau thì sửa thành đuôi **tsx**
 9. Chạy lên kiểm tra
 
+## Cài yarn cho project
+
+1. **npm install -g yarn**
+2. **yarn global add react-native-cli**
+3. **react-native init sample**
+
 ## Hooks trong REACT NATIVE
 
 ### Định nghĩa:

@@ -22,3 +22,35 @@
 -
 
 # Flastlist
+
+1. **horizontal**: hiển thị nằm ngang
+2.
+
+```ts
+<FlatList
+  data={data.getInboxes.items}
+  renderItem={renderItem}
+  keyExtractor={(item) => item.id}
+  ListEmptyComponent={() => {
+    return (
+      <>
+        <Text>Empty Post</Text>
+      </>
+    );
+  }}
+  refreshControl={
+    <RefreshControl
+      colors={["#9Bd35A", "#689F38"]}
+      refreshing={refreshing}
+      onRefresh={refetch}
+    />
+  }
+/>
+```
+
+3. **showsHorizontalScrollIndicator={false}**: ẩn thanh trượt
+
+# StatusBar:
+
+1. StatusBar.setBackgroundColor('#242334'); // set màu background cho status
+2. StatusBar.setBarStyle('light-content'); // set màu cho icon trong status

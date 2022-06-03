@@ -80,7 +80,7 @@ dependencies {
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 //Bỏ trong useEffect() là tốt nhất
 GoogleSignin.configure({
-  webClientId: "ma_nay_lay_trong_file_google-services.json_moi_tai_ve",
+  webClientId: "ma_nay_lay_trong_file_google-services.json_moi_tai_ve_số",
 });
 ```
 

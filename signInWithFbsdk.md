@@ -154,3 +154,214 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({});
 ```
+## Dùng import { LoginManager } from 'react-native-fbsdk-next';
+
+```js
+
+//login screen
+  import React, { useEffect } from 'react';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
+
+import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk-next';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+
+const LoginScreen = ({ navigation }) => {
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        '1019029921892-6er0fbsiphn5akq7dqkfq8ph0lb8ca1o.apps.googleusercontent.com',
+    });
+  }, []);
+
+  const onFacebookButtonPress = () => {
+    LoginManager.logInWithPermissions(['public_profile']).then(
+      function (result) {
+        if (result.isCancelled) {
+          console.log('Login cancelled');
+        } else {
+          AccessToken.getCurrentAccessToken().then(data => {
+            const { accessToken } = data;
+            if (accessToken) {
+              navigation.navigate('Home');
+            }
+            // login({
+            //   token: accessToken,
+            // });
+          });
+        }
+      },
+      function (error) {
+        console.log('Login fail with error: ' + error);
+      },
+    );
+  };
+
+  const onGoogleButtonPress = async () => {
+    // Get the users ID token
+    const { idToken } = await GoogleSignin.signIn();
+
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    console.log(googleCredential);
+    // // Sign-in the user with the credential
+    const user_sign_in = auth().signInWithCredential(googleCredential);
+
+    user_sign_in
+      .then(user => {
+        console.log(user.additionalUserInfo.profile);
+
+        if (user) {
+          navigation.navigate('Home', {
+            userInfo: user.additionalUserInfo.profile,
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <SafeAreaView
+      style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+      <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Login Screens</Text>
+
+      <TouchableOpacity
+        style={{
+          backgroundColor: 'blue',
+          width: 180,
+          height: 30,
+          alignItems: 'center',
+        }}
+        onPress={onFacebookButtonPress}>
+        <Text style={{ fontWeight: 'bold', fontSize: 18, color: 'white' }}>
+          LoginButtonFacebook
+        </Text>
+      </TouchableOpacity>
+
+      <Text></Text>
+
+      <TouchableOpacity
+        style={{
+          backgroundColor: 'orange',
+          width: 180,
+          height: 30,
+          alignItems: 'center',
+        }}
+        onPress={onGoogleButtonPress}>
+        <Text style={{ fontWeight: 'bold', fontSize: 18, color: 'white' }}>
+          LoginButton Google
+        </Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({});
+
+export default LoginScreen;
+
+
+//HomeScreen
+
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Profile, LoginButton} from 'react-native-fbsdk-next'; //facebook login
+
+import auth from '@react-native-firebase/auth'; //google-signin
+
+const HomeScreen = ({route, navigation}) => {
+  const [name, setName] = useState('');
+  const [image, setImage] = useState('');
+
+  const [userInfo, setUseInfo] = useState('');
+
+  useEffect(() => {
+    if (route.params) {
+      const {userInfo} = route.params;
+      setUseInfo(userInfo);
+    } else {
+      const idTimeout = setTimeout(() => {
+        Profile.getCurrentProfile().then(function (currentProfile) {
+          console.log(currentProfile);
+          setName(currentProfile.lastName + ' ' + currentProfile.firstName);
+          setImage(currentProfile.imageURL);
+        });
+      }, 5000);
+      return () => {
+        clearTimeout(idTimeout);
+      };
+    }
+  }, []);
+
+  const onLogoutGoogle = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+
+    navigation.navigate('Login');
+  };
+
+  return (
+    <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+      {userInfo ? (
+        <>
+          <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+            Đăng nhập với Google
+          </Text>
+          <Image
+            source={{uri: userInfo.picture}}
+            style={{width: 100, height: 100}}
+          />
+          <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+            {userInfo.name}
+          </Text>
+          <Text style={{fontSize: 19, fontWeight: 'bold'}}>
+            {userInfo.email}
+          </Text>
+
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'orange',
+              width: 180,
+              height: 30,
+              alignItems: 'center',
+            }}
+            onPress={onLogoutGoogle}>
+            <Text>Log Out Google</Text>
+          </TouchableOpacity>
+        </>
+      ) : (
+        <>
+          <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+            Đăng nhập với FaceBook
+          </Text>
+          <Image
+            source={{uri: image || null}}
+            style={{width: 100, height: 100}}
+          />
+          <Text style={{fontSize: 20, fontWeight: 'bold'}}>{name}</Text>
+          <LoginButton
+            onLoginFinished={(error, result) => {
+              if (error) {
+                alert('login has error: ' + result.error);
+              } else {
+                alert('login is cancelled.');
+              }
+            }}
+            onLogoutFinished={() => navigation.navigate('Login')}
+          />
+        </>
+      )}
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+const styles = StyleSheet.create({});
+
+```
