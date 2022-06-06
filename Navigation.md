@@ -111,6 +111,7 @@ export default App;
                tabBarIcon: ({}) => (
                <MaterialCommunityIcons name="home" color={'blue'} size={25} />
                ),//thêm icon
+               tabBarLabelStyle: {color: '#edb021', fontSize: 10},// màu của tên label
            }}
 
    ```
