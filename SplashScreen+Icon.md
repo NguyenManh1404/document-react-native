@@ -104,3 +104,12 @@ Doc: https://blog.logrocket.com/building-a-splash-screen-in-react-native/
 4. Vào **android\app\src\main\res** xóa những thư mục mặc định và thay vào đó là thư mục vừa tạo
 
 5. Buil lại app để hoàn thành
+
+
+
+# Tạo SplashScreen and Logo App cho ios 
+
+
+**Link1** https://youtu.be/Ey0_kbAeWKg</br>
+**Link2** https://techmaster.vn/posts/35900/tao-app-launcher-icon-cho-react-native-app-android-ios</br>
+**Makeicon**: https://makeappicon.com/

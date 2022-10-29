@@ -21,7 +21,7 @@
 - **resizeMode**: cài đặt kích thước ảnh cho phù hợp với container chứ nó
 -
 
-# Flastlist
+# Flatlist
 
 1. **horizontal**: hiển thị nằm ngang
 2.
