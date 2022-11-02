@@ -3,9 +3,10 @@
 ## Cài đặt môi trường chạy:
 
 1. Cài đặt máy ảo(Có thể dùng android studio hoặc genymotion);
-2. Tải SDk.
+- lưu ý: SetUp SDK cho Android studio như Trên doc
+2. Tải SDk. Hiện tại chỉ hỗ trợ Java 11 
 3. Cài đặt sdk môi trường cho máy trỏ đến sdk vừa tải:
-
+  - Set up Environment cho `ANDROID_HOME `và `JAVA_HOME`
    - Bỏ trong phần **path** với đường dẫn **C:\Users\admin\AppData\Local\Android\Sdk**
 
 4. Cài đặt **react native client**:
