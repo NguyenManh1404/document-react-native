@@ -17,3 +17,16 @@ const calculateActualHTMLLength = (htmlContent) => {
   return 0;
 };
 ```
+
+2. Lọc data ra từ một mảng:
+- Ko nên sử dụng UseEffest để setState: nó là sai lầm
+
+```js
+const jobImages = useMemo(() => {
+    if (data?.length > 0) {
+      return data?.filter((image) => image.type !== 'video');
+    }
+    return [];
+  }, [data]);
+
+```
