@@ -39,8 +39,8 @@
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false" />
     </application>
 ```
-
-4. Use in Screen
+4. Get API_KEY https://developers.google.com/maps/documentation/javascript/get-api-key
+5. Use in Screen
 
 <details>
 
