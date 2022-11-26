@@ -628,3 +628,15 @@ const styles = StyleSheet.create({})
 ```
 
 </details>
+
+
+10.  onScroll scrollView
+```js
+ <ScrollView
+     onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: 
+     scrollX } } }], {listener: (event) => handleScroll(event)})}
+     scrollEventThrottle={16}
+>
+   ...some content
+</ScrollView>
+```

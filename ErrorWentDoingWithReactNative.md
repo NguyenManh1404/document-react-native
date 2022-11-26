@@ -27,3 +27,13 @@ If you don't have cocoa pods installed you need to sudo gem install cocoapods
 - run sudo chmod 755 android/gradlew 
 - https://stackoverflow.com/questions/54541734/spawnsync-gradlew-eacces-error-when-running-react-native-project-on-emulator
 
+3. android targetSdkVersion 30 thì update lên 31 luôn hì.
+
+    hiện tại app nào mà android targetSdkVersion 30 thì update lên 31 luôn hì. Những chỗ cần update:
+    1.  Trong file android/build.gradle, update theo
+            buildToolsVersion = "31.0.0"
+            compileSdkVersion = 31
+            targetSdkVersion = 31
+            classpath 'com.android.tools.build:gradle:7.1.1'
+    2.  Trong file gradle-wrapper.properties
+      distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-all.zip

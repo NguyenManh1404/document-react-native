@@ -20,7 +20,9 @@
 
 1. yarn add react-native-maps 
 2. podInstall
-3. `For Android: add the following line in your AndroidManifest.xml`
+
+### Set up cho android
+1. `For Android: add the following line in your AndroidManifest.xml`
 ```js
 
 
@@ -39,8 +41,8 @@
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false" />
     </application>
 ```
-4. Get API_KEY https://developers.google.com/maps/documentation/javascript/get-api-key
-5. Use in Screen
+2. Get API_KEY https://developers.google.com/maps/documentation/javascript/get-api-key
+3. Use in Screen
 
 <details>
 
@@ -98,3 +100,45 @@ const styles = StyleSheet.create({
 ```
 </details>
 
+### Setup cho ios
+1. add this line in **./ios/mtk_user_app/AppDelegate.mm**
+```js
+#import <GoogleMaps/GoogleMaps.h> //add google map
+#import "AppDelegate.h"
+
+#import <React/RCTBridge.h>
+.....
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  RCTAppSetupPrepareApp(application);
+
+  // //add google map
++  [GMSServices provideAPIKey:@"AIzaSyDswlxkWl-Wxyitg4T1-WXytnofuUUMNhM"]; 
+  // //add google map
+
+  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
+#if RCT_NEW_ARCH_ENABLED
+.....
+}
+```
+2. Add this line in to **./ios/Podfile**
+
+```js
+platform :ios, '13.0' //ios chỉ dùng 13.0
+install! 'cocoapods', :deterministic_uuids => false
+
+target 'mtk_user_app' do
+
+  // //add google map
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  // //add google map
+
+  config = use_native_modules!
+  ......
+```
+3. Yarn pod và cài lại
