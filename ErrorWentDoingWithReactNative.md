@@ -37,3 +37,18 @@ If you don't have cocoa pods installed you need to sudo gem install cocoapods
             classpath 'com.android.tools.build:gradle:7.1.1'
     2.  Trong file gradle-wrapper.properties
       distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-all.zip
+
+4. Your Ruby version is 2.3.0, but your Gemfile specified 2.2.5" while server starting
+- m -rf ~/.rvm
+- curl -L https://get.rvm.io | bash -s stable
+- source ~/.rvm/scripts/rvm
+- type rvm | head -n 1
+- rvm install 2.2.5
+- rvm use 2.2.5
+
+
+
+5.  `Bug build failed when xcode 14`
+
+- solution: 
+![SplashScreen](./image/builFailIosXcode14.png)

@@ -196,3 +196,52 @@ Dùng trong trường hợp muốn chuyển từ Screen Topbar/Bottombar sang m�
 
 1. Cài đặt **npm install @react-navigation/stack**
 2.
+
+
+## useNavigationComponentDidAppear 
+
+- Dùng khi muốn gọi một callback sau khi vừa render xong UI
+- Khi mà muốn vừa vào trang đã gọi callback ngay lập tức.
+
+```js
+import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks'
+
+const ExampleScreen = () => {
+  // Listen events only for this screen if screen was wrapped with NavigationProvider
+  useNavigationComponentDidAppear((e) => {
+    console.warn(`${e.componentName} appeared!`)
+  })
+
+  return <Text>Example Screen</Text>
+}
+```
+
+## useNavigationComponentDidDisappear 
+
+- Dùng khi muốn gọi một callback sau khi đã render xong UI
+- Khi mà muốn thoát khoỉ màn hình thì hắn gọi callback ngay lập tức.
+
+```js
+import { useNavigationComponentDidAppear } from 'react-native-navigation-hooks'
+
+const ExampleScreen = () => {
+  // Listen events only for this screen if screen was wrapped with NavigationProvider
+  useNavigationComponentDidDisappear((e) => {
+    console.warn(`${e.componentName} appeared!`)
+  })
+
+  return <Text>Example Screen</Text>
+}
+```
+
+3. Chuyển các bottomTab  trong KINDI
+
+```js
+  const onFavouritesChildCare = () => {
+    Navigation.mergeOptions(componentId, {
+      bottomTabs: {
+        currentTabIndex: 1,
+      },
+    });
+  };
+```
