@@ -52,3 +52,12 @@ If you don't have cocoa pods installed you need to sudo gem install cocoapods
 
 - solution: 
 ![SplashScreen](./image/builFailIosXcode14.png)
+
+6. Your Ruby version is 2.7.6, but your Gemfile specified 2.7.5
+
+### solution: 
+ - rvm install "ruby-2.7.5"
+
+ - rvm use 2.7.5
+
+link: https://github.com/facebook/react-native/issues/35127
