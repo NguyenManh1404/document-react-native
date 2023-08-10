@@ -61,3 +61,6 @@ If you don't have cocoa pods installed you need to sudo gem install cocoapods
  - rvm use 2.7.5
 
 link: https://github.com/facebook/react-native/issues/35127
+
+7. Error: EACCES: permission denied when trying to install ESLint using npm
+link: https://stackoverflow.com/questions/35954725/error-eacces-permission-denied-when-trying-to-install-eslint-using-npm
