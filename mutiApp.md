@@ -23,7 +23,7 @@ Bời vì React Native có 2 platform là android và ios, vậy nên chúng ta 
 
 1. Tạo file **Promise.h**
 
-```
+```h
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 
@@ -40,7 +40,7 @@ Bời vì React Native có 2 platform là android và ios, vậy nên chúng ta 
 
 2. Tạo file **Promise.m**
 
-```
+```m
 #import "Promise.h"
 
 @implementation Promise
@@ -58,7 +58,7 @@ Bời vì React Native có 2 platform là android và ios, vậy nên chúng ta 
 3. Tạo file **ConnectNativeModule.h**
 
 
-```
+```h
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 @interface ConnectNativeModule : RCTEventEmitter <RCTBridgeModule>
@@ -70,7 +70,7 @@ Bời vì React Native có 2 platform là android và ios, vậy nên chúng ta 
 
 4. Tạo file **ConnectNativeModule.m**
 
-```
+```m
 #import "ConnectNativeModule.h"
 #import <React/RCTRootView.h>
 #import "Promise.h"
