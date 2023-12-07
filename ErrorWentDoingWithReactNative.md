@@ -64,3 +64,9 @@ link: https://github.com/facebook/react-native/issues/35127
 
 7. Error: EACCES: permission denied when trying to install ESLint using npm
 link: https://stackoverflow.com/questions/35954725/error-eacces-permission-denied-when-trying-to-install-eslint-using-npm
+
+
+8. XCode Build Fails: PhaseScriptExecution failed with a nonzero exit code when setup project
+
+- solution: **sudo ln -s "$(which node)" /usr/local/bin/node**
+https://github.com/getsentry/sentry-react-native/issues/948
