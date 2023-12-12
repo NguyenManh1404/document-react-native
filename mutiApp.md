@@ -21,6 +21,8 @@ Bời vì React Native có 2 platform là android và ios, vậy nên chúng ta 
 
 ### Mở Xcode lên để tạo các file native sau:
 
+![forEachResult](./image/createFilemutiapp.png)
+
 1. Tạo file **Promise.h**
 
 ```h
@@ -203,10 +205,10 @@ RCT_REMAP_METHOD(getBundleNames,
 
 
 
-### Tạo thư mục assets chứa bundle id
+### Tạo thư mục assets sau đó bỏ index.android-1.bundle bundle id vào
 
 ```
-android/app/src/main/assets
+android/app/src/main/assets/index.android-1.bundle
 ```
 
 ### Tạo module native
