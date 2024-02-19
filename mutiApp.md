@@ -506,11 +506,21 @@ public class MiniAppActivity extends ReactActivity implements DefaultHardwareBac
  npx react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ../../ios/index.ios-1.bundle --assets-dest ../../ios/ --reset-cache
 ```
 
+```
+npx react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ./bundleResult/index.ios-1.bundle --assets-dest ./bundleResult/ --reset-cache
+
+```
 - android:
 
 ```
 npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output ../../android/app/src/main/assets/index.android-1.bundle --assets-dest ../../android/app/src/main/res/
 ```
 
+
+```
+npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output ./bundleResult/index.android-1.bundle --assets-dest ./bundleResult/ --reset-cache
+```
 2. Các thư viện ở app con phải đươc cài sẵn ở app cha
+
+3. Tốt nhất nên sử dụng app con có ver React native trùng với app cha.
 
